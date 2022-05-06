@@ -8,6 +8,9 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.json('hello world')
+})
 db.connect(err => {
     if (err) throw err;
     console.log('data base connected.')
