@@ -1,6 +1,7 @@
 const db = require('./connection');
 const inquirer = require('inquirer');
 
+
 function promptUser() {
     inquirer.prompt({
         type: 'list',
@@ -11,7 +12,8 @@ function promptUser() {
             'View Roles',
             'Add Employee',
             'Add Department',
-            'Update Employee Role'
+            'Update Employee Role',
+            'Exit Application'
         ]
     }).then(function ({ task }) {
         switch (task) {
@@ -32,6 +34,9 @@ function promptUser() {
                 break;
             case "Update Employee Role":
                 updateRole();
+                break;
+            case "Exit Application":
+                exitApp()
                 break;
         }
 
@@ -130,5 +135,9 @@ function updateRole() {
         })
     })
 
+}
+
+function exitApp() {
+    process.exit()
 }
 promptUser();
